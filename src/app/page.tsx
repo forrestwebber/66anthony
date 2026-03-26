@@ -1,7 +1,8 @@
+
 'use client'
 
 import Image from 'next/image'
-import FloorPlan from '../components/FloorPlan'
+import { useState } from 'react';
 
 const UNITS = [
   { name: "Unit A", beds: 3, baths: 2.5, sqft: 1420, levels: 2, feature: "Private Patio" },
@@ -9,7 +10,50 @@ const UNITS = [
   { name: "Unit C", beds: 2, baths: 2, sqft: 980, levels: 2, feature: "Street Level Entry" },
 ]
 
+const GALLERY_IMAGES = [
+  '/popular1.jpg',
+  '/popular2.jpg',
+  '/popular3.jpg',
+  '/popular4.jpg',
+  '/popular5.jpg',
+  '/home.jpg',
+]
+
 export default function HomePage() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [submitting, setSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitting(true);
+    setSubmitMessage('');
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      if (res.ok) {
+        setSubmitMessage('Thank you for your inquiry!');
+        setName('');
+        setEmail('');
+        setMessage('');
+      } else {
+        setSubmitMessage('Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      setSubmitMessage('Something went wrong. Please try again.');
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans">
       {/* Header */}
@@ -18,10 +62,10 @@ export default function HomePage() {
         <nav className="hidden md:flex gap-8 text-sm font-medium uppercase tracking-wider text-slate-500">
           <a href="#gallery" className="hover:text-slate-900 transition">Gallery</a>
           <a href="#details" className="hover:text-slate-900 transition">Unit Details</a>
-          <a href="#floorplan" className="hover:text-slate-900 transition">Floor Plan</a>
+          <a href="#location" className="hover:text-slate-900 transition">Location</a>
           <a href="#contact" className="hover:text-slate-900 transition">Contact</a>
         </nav>
-        <button className="bg-slate-900 text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-slate-700 transition">Schedule Tour</button>
+        <a href="#contact" className="bg-slate-900 text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-slate-700 transition">Schedule Tour</a>
       </header>
 
       <main>
@@ -30,7 +74,7 @@ export default function HomePage() {
           <div className="absolute inset-0 z-0">
             <div className="relative h-full w-full">
                <div className="absolute inset-0 bg-black/40 z-10" />
-               <img src="/home.jpg" alt="66 Anthony Street" className="w-full h-full object-cover" />
+               <Image src="/home.jpg" alt="66 Anthony Street" layout="fill" objectFit="cover" />
             </div>
           </div>
 
@@ -71,51 +115,36 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Floor Plan Section */}
-        <FloorPlan />
-
-        {/* Feature Grid */}
-        <section className="py-24 px-6 max-w-7xl mx-auto border-t border-slate-100">
-          <div className="grid md:grid-cols-3 gap-16">
-            <div>
-              <h2 className="text-2xl font-bold mb-6 italic underline decoration-blue-500">Superior Design</h2>
-              <p className="text-slate-500 leading-relaxed">
-                Most builders pass on lots like this. We don't. We use design to navigate tree situations and city code to achieve highest and best use.
-              </p>
-            </div>
-            <div>
-              <h2 className="text-2xl font-bold mb-6 italic underline decoration-blue-500">Prime Location</h2>
-              <p className="text-slate-500 leading-relaxed">
-                Situated in the heart of Austin's most active infill bands. Access to transit, culture, and the booming tech scaling of 2026.
-              </p>
-            </div>
-            <div>
-              <h2 className="text-2xl font-bold mb-6 italic underline decoration-blue-500">Investment Ready</h2>
-              <p className="text-slate-500 leading-relaxed">
-                Oak Forest properties are built for long-term equity growth. A "lessons learned" approach that prioritizes design and durability.
-              </p>
-            </div>
-          </div>
-        </section>
-
         {/* Gallery */}
         <section id="gallery" className="bg-slate-900 py-24 px-6 text-white">
           <div className="max-w-7xl mx-auto">
-             <h2 className="text-4xl font-bold mb-12 text-center">Visual Proof</h2>
-             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div className="aspect-[4/5] bg-slate-800 rounded-2xl overflow-hidden relative group">
-                   <img src="/popular1.jpg" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500" alt="Interior" />
-                </div>
-                <div className="aspect-[4/5] bg-slate-800 rounded-2xl overflow-hidden relative group">
-                   <img src="/popular2.jpg" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500" alt="Kitchen" />
-                </div>
-                <div className="aspect-[4/5] bg-slate-800 rounded-2xl overflow-hidden relative group">
-                   <img src="/popular3.jpg" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500" alt="Bathroom" />
-                </div>
-                <div className="aspect-[4/5] bg-slate-800 rounded-2xl overflow-hidden relative group">
-                   <img src="/popular4.jpg" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500" alt="Living" />
-                </div>
+             <h2 className="text-4xl font-bold mb-12 text-center">Property Gallery</h2>
+             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                {GALLERY_IMAGES.map((src, index) => (
+                  <div key={index} className="aspect-[4/5] bg-slate-800 rounded-2xl overflow-hidden relative group">
+                    <Image src={src} alt={`Gallery image ${index + 1}`} layout="fill" objectFit="cover" className="opacity-80 group-hover:opacity-100 transition duration-500" />
+                  </div>
+                ))}
              </div>
+          </div>
+        </section>
+
+        {/* Location / Map Section */}
+        <section id="location" className="py-24 px-6 max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">Location</h2>
+            <p className="text-slate-500 text-lg">66 Anthony St, Austin, TX 78702</p>
+          </div>
+          <div className="aspect-w-16 aspect-h-9 rounded-2xl overflow-hidden">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3445.932947246535!2d-97.716334984882!3d30.26620598179833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644b5c7e3e3135b%3A0x73c113554906a480!2s66%20Anthony%20St%2C%20Austin%2C%20TX%2078702!5e0!3m2!1sen!2sus!4v1678886473479!5m2!1sen!2sus"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen={true}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
         </section>
 
@@ -124,17 +153,20 @@ export default function HomePage() {
            <h2 className="text-5xl font-bold mb-6 tracking-tighter">REQUEST ACCESS</h2>
            <p className="text-slate-500 text-xl mb-12 font-light">Inquire below for a private showing or investment packet.</p>
 
-           <form className="space-y-4">
-              <input type="text" placeholder="Full Name" className="w-full px-8 py-5 rounded-2xl border border-slate-200 focus:ring-2 focus:ring-slate-900 outline-none transition bg-white text-lg" />
-              <input type="email" placeholder="Email Address" className="w-full px-8 py-5 rounded-2xl border border-slate-200 focus:ring-2 focus:ring-slate-900 outline-none transition bg-white text-lg" />
-              <textarea placeholder="Message" rows={4} className="w-full px-8 py-5 rounded-2xl border border-slate-200 focus:ring-2 focus:ring-slate-900 outline-none transition bg-white text-lg" />
-              <button className="w-full bg-slate-900 text-white font-black py-6 rounded-2xl hover:bg-slate-700 transition text-xl uppercase tracking-[0.2em] shadow-2xl">Submit Inquiry</button>
+           <form onSubmit={handleSubmit} className="space-y-4">
+              <input type="text" placeholder="Full Name" value={name} onChange={(e) => setName(e.target.value)} required className="w-full px-8 py-5 rounded-2xl border border-slate-200 focus:ring-2 focus:ring-slate-900 outline-none transition bg-white text-lg" />
+              <input type="email" placeholder="Email Address" value={email} onChange={(e) => setEmail(e.target.value)} required className="w-full px-8 py-5 rounded-2xl border border-slate-200 focus:ring-2 focus:ring-slate-900 outline-none transition bg-white text-lg" />
+              <textarea placeholder="Message" rows={4} value={message} onChange={(e) => setMessage(e.target.value)} required className="w-full px-8 py-5 rounded-2xl border border-slate-200 focus:ring-2 focus:ring-slate-900 outline-none transition bg-white text-lg" />
+              <button type="submit" disabled={submitting} className="w-full bg-slate-900 text-white font-black py-6 rounded-2xl hover:bg-slate-700 transition text-xl uppercase tracking-[0.2em] shadow-2xl disabled:bg-slate-500">
+                {submitting ? 'Submitting...' : 'Submit Inquiry'}
+              </button>
+              {submitMessage && <p className="mt-4 text-lg">{submitMessage}</p>}
            </form>
         </section>
       </main>
 
       <footer className="py-12 border-t border-slate-200 text-center text-slate-400 text-xs font-bold tracking-widest uppercase">
-         &copy; 2026 Keel Homes / Oak Forest Modern Homes | A SLACKED.CO PRODUCTION
+         &copy; {new Date().getFullYear()} Keel Homes / Oak Forest Modern Homes | A SLACKED.CO PRODUCTION
       </footer>
     </div>
   )
