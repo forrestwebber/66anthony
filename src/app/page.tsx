@@ -32,12 +32,15 @@ const PROPERTY = {
 };
 
 const GALLERY_IMAGES = [
-  { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=85", alt: "Modern home exterior with clean lines", label: "Exterior" },
-  { src: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1200&q=85", alt: "Open concept living room", label: "Living Room" },
-  { src: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=85", alt: "Modern kitchen with island", label: "Kitchen" },
-  { src: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=1200&q=85", alt: "Primary bedroom", label: "Primary Suite" },
-  { src: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1200&q=85", alt: "Spa-like bathroom", label: "Bath" },
-  { src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&q=85", alt: "Backyard patio", label: "Outdoor Living" },
+  { src: "/render-1.png", alt: "66 Anthony Street — exterior render", label: "Exterior" },
+  { src: "/render-2.png", alt: "66 Anthony Street — render", label: "Front View" },
+  { src: "/render-3.png", alt: "66 Anthony Street — render", label: "Perspective" },
+  { src: "/render-4.png", alt: "66 Anthony Street — interior inspiration", label: "Interior Vibe" },
+  { src: "/render-5.png", alt: "66 Anthony Street — interior inspiration", label: "Living Space" },
+  { src: "/render-6.png", alt: "66 Anthony Street — interior inspiration", label: "Kitchen" },
+  { src: "/render-7.png", alt: "66 Anthony Street — interior inspiration", label: "Primary Suite" },
+  { src: "/render-8.png", alt: "66 Anthony Street — interior inspiration", label: "Details" },
+  { src: "/render-9.png", alt: "66 Anthony Street — interior inspiration", label: "Finish Level" },
 ];
 
 const FLOOR_PLAN_ROOMS = [
@@ -198,7 +201,7 @@ export default function Home() {
       {/* ─── Hero ─── */}
       <section className="relative h-screen w-full overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=85"
+          src="/render-1.png"
           alt="66 Anthony Street - Luxury Home Exterior"
           fill
           className="object-cover scale-105"
@@ -274,7 +277,7 @@ export default function Home() {
             <div className="relative">
               <div className="aspect-[4/5] relative rounded-3xl overflow-hidden shadow-2xl ring-1 ring-white/10">
                 <Image
-                  src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80"
+                  src="/render-2.png"
                   alt="Modern interior living space"
                   fill
                   className="object-cover hover:scale-105 transition-transform duration-700"
@@ -319,6 +322,9 @@ export default function Home() {
             <SectionLabel>Visual Tour</SectionLabel>
             <SectionTitle className="text-white">Step Inside</SectionTitle>
             <p className="text-neutral-500 mt-5 text-lg">Click any image for a closer look</p>
+            <p className="text-neutral-600 mt-3 text-sm max-w-xl mx-auto">
+              Exterior renders reflect final design. Interior images shown are inspiration references representing the aesthetic and finish level we&apos;re designing toward with our interior designer — actual interior photos will be available closer to completion.
+            </p>
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
@@ -439,7 +445,7 @@ export default function Home() {
 
             <div className="aspect-square relative rounded-3xl overflow-hidden ring-1 ring-white/10 shadow-2xl">
               <Image
-                src="https://images.unsplash.com/photo-1531218150217-54595bc2b934?w=800&q=80"
+                src="/render-3.png"
                 alt="Austin Texas cityscape"
                 fill
                 className="object-cover"
@@ -460,7 +466,7 @@ export default function Home() {
       {/* ─── Contact / CTA ─── */}
       <Section id="contact" className="relative py-32 px-6 overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1920&q=80"
+          src="/render-4.png"
           alt="Beautiful home interior"
           fill
           className="object-cover"
