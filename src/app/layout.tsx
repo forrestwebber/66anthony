@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     siteName: "66 Anthony Street",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80",
+        url: "https://66anthony.com/render-1.png",
         width: 1200,
         height: 630,
         alt: "66 Anthony Street — Modern Luxury Home in Austin, TX",
@@ -59,7 +59,7 @@ const jsonLd = {
     "A stunning contemporary residence designed for the modern homeowner. 66 Anthony Street blends clean architectural lines with warm, livable interiors.",
   url: "https://66anthony.com",
   image:
-    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80",
+    "https://66anthony.com/render-1.png",
   address: {
     "@type": "PostalAddress",
     streetAddress: "66 Anthony Street",

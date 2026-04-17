@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Auto-added by site monitor setup
+.env.local
+node_modules/
+.open-next/
