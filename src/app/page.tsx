@@ -3,18 +3,18 @@
 import { useState, useEffect, useRef } from 'react';
 
 const UNITS = [
-  { name: "Unit A", beds: 4, baths: 3.5, sqft: 1680, levels: 2, feature: "Pool & Carport", price: "Starting from $825K" },
-  { name: "Unit B", beds: 4, baths: 3.5, sqft: 1733, levels: 2, feature: "Pool & Carport", price: "Starting from $849K" },
-  { name: "Unit C", beds: 2, baths: 2.5, sqft: 969, levels: 2, feature: "Private Deck", price: "Starting from $575K" },
+  { name: "Unit A", beds: 4, baths: 3.5, sqft: 1680, levels: 2, feature: "Pool & Carport" },
+  { name: "Unit B", beds: 4, baths: 3.5, sqft: 1733, levels: 2, feature: "Pool & Carport" },
+  { name: "Unit C", beds: 2, baths: 2.5, sqft: 969, levels: 2, feature: "Private Deck" },
 ];
 
 const AMENITIES = [
-  { name: "Lady Bird Lake & Trails", dist: "0.8 mi", icon: "🌊" },
-  { name: "Suerte", dist: "0.5 mi", icon: "🍽" },
-  { name: "Launderette", dist: "0.6 mi", icon: "🍸" },
-  { name: "Justine's Brasserie", dist: "1.2 mi", icon: "🥂" },
-  { name: "Downtown Austin", dist: "1.5 mi", icon: "🏙" },
-  { name: "I-35 Access", dist: "0.3 mi", icon: "🛣" },
+  { name: "Lady Bird Lake & Trails", dist: "0.8 mi" },
+  { name: "Suerte", dist: "0.5 mi" },
+  { name: "Launderette", dist: "0.6 mi" },
+  { name: "Justine's Brasserie", dist: "1.2 mi" },
+  { name: "Downtown Austin", dist: "1.5 mi" },
+  { name: "I-35 Access", dist: "0.3 mi" },
 ];
 
 const FEATURES = [
@@ -102,7 +102,7 @@ export default function HomePage() {
           <a href="#collection" className="text-[11px] uppercase tracking-[0.2em] font-medium text-white/80 hover:text-[#c2a07e] transition-colors">Residences</a>
           <a href="#features" className="text-[11px] uppercase tracking-[0.2em] font-medium text-white/80 hover:text-[#c2a07e] transition-colors">Features</a>
           <a href="#locale" className="text-[11px] uppercase tracking-[0.2em] font-medium text-white/80 hover:text-[#c2a07e] transition-colors">Location</a>
-          <a href="#contact" className="text-[11px] uppercase tracking-[0.2em] font-medium bg-[#c2a07e] text-[#1a1310] rounded-full px-6 py-2.5 hover:bg-[#d4b896] transition-all">Schedule Tour</a>
+          <a href="#contact" className="text-[11px] uppercase tracking-[0.2em] font-medium bg-[#c2a07e] text-[#1a1310] rounded-full px-6 py-2.5 hover:bg-[#d4b896] transition-all">Get in Touch</a>
         </div>
         <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden text-white p-2" aria-label="Menu">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -117,7 +117,7 @@ export default function HomePage() {
           {['Vision', 'Residences', 'Features', 'Location'].map((item) => (
             <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setMobileMenuOpen(false)} className="text-2xl font-serif italic text-white hover:text-[#c2a07e] transition-colors">{item}</a>
           ))}
-          <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="text-sm uppercase tracking-[0.2em] font-medium bg-[#c2a07e] text-[#1a1310] rounded-full px-8 py-3 mt-4">Schedule Tour</a>
+          <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="text-sm uppercase tracking-[0.2em] font-medium bg-[#c2a07e] text-[#1a1310] rounded-full px-8 py-3 mt-4">Get in Touch</a>
         </div>
       )}
 
@@ -138,13 +138,9 @@ export default function HomePage() {
             </h1>
             <div className="flex flex-col md:flex-row justify-between items-start md:items-end border-t border-white/20 pt-6 mt-8 text-white animate-fade-up stagger-3">
               <p className="max-w-sm text-[13px] font-light leading-relaxed text-white/80">
-                Three luxury residences in the heart of East Austin. Designed with restraint, built with intention. <span className="text-[#c2a07e] font-medium">Now accepting inquiries.</span>
+                Three luxury residences in the heart of East Austin. Designed with restraint, built with intention. <span className="text-[#c2a07e] font-medium">Now welcoming investor inquiries.</span>
               </p>
               <div className="flex items-center gap-6 mt-4 md:mt-0">
-                <div className="text-right">
-                  <span className="block text-[10px] uppercase tracking-[0.3em] text-white/50">From</span>
-                  <span className="text-2xl font-serif italic text-[#c2a07e]">$575K</span>
-                </div>
                 <a href="#contact" className="text-[11px] uppercase tracking-[0.2em] font-medium border border-[#c2a07e] text-[#c2a07e] rounded-full px-6 py-3 hover:bg-[#c2a07e] hover:text-[#1a1310] transition-all">
                   Inquire Now
                 </a>
@@ -171,7 +167,7 @@ export default function HomePage() {
                 66 Anthony is a collection of three meticulously crafted residences in East Austin&apos;s most coveted corridor. Each home balances raw materiality with refined luxury &mdash; think warm wood, polished concrete, and walls of glass that blur the boundary between indoors and out.
               </p>
               <p className="text-[15px] font-light leading-relaxed text-[#1a1310]/70">
-                Developed by <strong className="font-medium text-[#1a1310]">Oak Forest Modern Homes</strong>, 66 Anthony represents a new standard for urban living in Austin &mdash; one where design, nature, and community converge.
+                Developed by <strong className="font-medium text-[#1a1310]">Oak Forest Modern Homes</strong>, 66 Anthony represents a high-design investment in one of Austin&apos;s most sought-after neighborhoods.
               </p>
             </div>
 
@@ -232,9 +228,7 @@ export default function HomePage() {
                   </div>
                   <div className="lg:w-1/2 p-8 md:p-12 flex flex-col justify-between text-[#fdfbf7]">
                     <div>
-                      <h3 className="text-3xl md:text-4xl font-serif italic mb-2 text-white">{unit.name}</h3>
-                      <p className="text-[#c2a07e] text-sm font-medium mb-8">{unit.price}</p>
-
+                      <h3 className="text-3xl md:text-4xl font-serif italic mb-8 text-white">{unit.name}</h3>
                       <div className="grid grid-cols-2 gap-6 mb-8">
                         <div className="border-l-2 border-[#c2a07e]/30 pl-4">
                           <span className="text-2xl font-serif italic text-white">{unit.beds}</span>
@@ -254,7 +248,6 @@ export default function HomePage() {
                         </div>
                       </div>
                     </div>
-
                     <div className="flex items-center justify-between border-t border-white/10 pt-6">
                       <span className="text-xs uppercase tracking-widest text-white/50">{unit.feature}</span>
                       <a href="#contact" className="text-[11px] uppercase tracking-[0.2em] font-medium border border-[#c2a07e]/50 text-[#c2a07e] rounded-full px-6 py-2.5 hover:bg-[#c2a07e] hover:text-[#1a1310] transition-all">
@@ -280,7 +273,6 @@ export default function HomePage() {
                 Every material, every fixture, every angle has been considered. These aren&apos;t spec homes &mdash; they&apos;re statements.
               </p>
             </div>
-
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10">
               {FEATURES.map((feature, i) => (
                 <div key={i} className="bg-[#1a1310] p-8 group hover:bg-white/5 transition-colors">
@@ -298,16 +290,15 @@ export default function HomePage() {
             <div className="mb-16">
               <span className="text-[10px] uppercase tracking-[0.3em] text-[#c2a07e] font-bold mb-4 block gold-line">The Neighborhood</span>
               <h2 className="text-4xl md:text-6xl font-light mb-4 text-[#1a1310]">East Austin&apos;s <em className="font-serif italic text-[#c2a07e]">Best Block.</em></h2>
-              <p className="text-sm font-light text-[#1a1310]/60 max-w-lg leading-relaxed">Steps from Lady Bird Lake, world-class dining, and Austin&apos;s most vibrant cultural scene. This is the neighborhood everyone wants to live in.</p>
+              <p className="text-sm font-light text-[#1a1310]/60 max-w-lg leading-relaxed">Steps from Lady Bird Lake, world-class dining, and Austin&apos;s most vibrant cultural scene. This is the neighborhood everyone wants to be in.</p>
             </div>
-
             <div className="flex flex-col lg:flex-row gap-12">
               <div className="lg:w-2/5">
                 <ul className="space-y-0">
                   {AMENITIES.map((amenity, i) => (
                     <li key={i} className="flex items-center justify-between py-5 border-b border-[#1a1310]/10 group hover:px-4 transition-all">
                       <div className="flex items-center gap-4">
-                        <span className="text-lg">{amenity.icon}</span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#c2a07e] flex-shrink-0" />
                         <span className="text-sm font-medium text-[#1a1310] group-hover:text-[#c2a07e] transition-colors">{amenity.name}</span>
                       </div>
                       <span className="text-[11px] uppercase tracking-widest text-[#c2a07e] font-bold">{amenity.dist}</span>
@@ -333,68 +324,46 @@ export default function HomePage() {
             <video autoPlay muted loop playsInline className="w-full h-full object-cover opacity-30" src="/media/generated-video.mp4" />
           </div>
           <div className="relative z-10 max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl md:text-6xl font-serif italic text-white mb-6">Your East Austin address awaits.</h2>
-            <p className="text-white/60 text-sm font-light mb-8 max-w-md mx-auto">Limited to three residences. Schedule a private tour or request the full property brochure.</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="#contact" className="text-[11px] uppercase tracking-[0.2em] font-medium bg-[#c2a07e] text-[#1a1310] rounded-full px-8 py-3.5 hover:bg-[#d4b896] transition-all">Schedule a Tour</a>
-              <a href="/Anthony - SD 2026.03.13.pdf" target="_blank" className="text-[11px] uppercase tracking-[0.2em] font-medium border border-white/30 text-white rounded-full px-8 py-3.5 hover:bg-white hover:text-[#1a1310] transition-all">Download Brochure</a>
-            </div>
+            <h2 className="text-4xl md:text-6xl font-serif italic text-white mb-6">A rare East Austin investment.</h2>
+            <p className="text-white/60 text-sm font-light mb-8 max-w-md mx-auto">Three detached residences in 78702. Limited availability. Submit an inquiry to learn more about the project.</p>
+            <a href="#contact" className="inline-block text-[11px] uppercase tracking-[0.2em] font-medium bg-[#c2a07e] text-[#1a1310] rounded-full px-8 py-3.5 hover:bg-[#d4b896] transition-all">Submit Inquiry</a>
           </div>
         </section>
 
         {/* Contact Section */}
         <section id="contact" className="bg-[#fdfbf7] py-24 md:py-32 px-6 md:px-12" ref={contact.ref}>
-          <div className={`max-w-7xl mx-auto transition-all duration-1000 ${contact.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="flex flex-col lg:flex-row gap-16">
-              <div className="lg:w-1/2">
-                <span className="text-[10px] uppercase tracking-[0.3em] text-[#c2a07e] font-bold mb-4 block gold-line">Get in Touch</span>
-                <h2 className="text-4xl md:text-5xl font-light tracking-tight mb-6 text-[#1a1310]">
-                  Interested in<br/><em className="font-serif italic text-[#c2a07e]">66 Anthony?</em>
-                </h2>
-                <p className="text-sm font-light text-[#1a1310]/60 max-w-md leading-relaxed mb-8">
-                  Whether you&apos;re ready to schedule a private showing or simply want more information, we&apos;d love to hear from you. Our team responds within 24 hours.
-                </p>
-                <div className="space-y-4 text-sm text-[#1a1310]/70">
-                  <div className="flex items-center gap-3">
-                    <span className="w-8 h-8 bg-[#1a1310] rounded-full flex items-center justify-center text-[#c2a07e] text-xs">@</span>
-                    <span>info@oakforestmodernhomes.com</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <span className="w-8 h-8 bg-[#1a1310] rounded-full flex items-center justify-center text-[#c2a07e] text-xs">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 11a3 3 0 106 0 3 3 0 00-6 0z"/><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
-                    </span>
-                    <span>66 Anthony St, Austin, TX 78702</span>
-                  </div>
+          <div className={`max-w-3xl mx-auto transition-all duration-1000 ${contact.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <span className="text-[10px] uppercase tracking-[0.3em] text-[#c2a07e] font-bold mb-4 block gold-line">Express Interest</span>
+            <h2 className="text-4xl md:text-5xl font-light tracking-tight mb-4 text-[#1a1310]">
+              Interested in<br/><em className="font-serif italic text-[#c2a07e]">66 Anthony?</em>
+            </h2>
+            <p className="text-sm font-light text-[#1a1310]/60 max-w-md leading-relaxed mb-10">
+              Whether you&apos;re an investor exploring this project or simply want to learn more, we&apos;d love to hear from you. We respond within 24 hours.
+            </p>
+            <form onSubmit={handleSubmit} className="bg-[#1a1310] rounded-2xl p-8 md:p-12 space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="text-[10px] uppercase tracking-widest text-white/40 mb-2 block">Full Name</label>
+                  <input type="text" value={name} onChange={(e) => setName(e.target.value)} required className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder:text-white/20 outline-none focus:border-[#c2a07e]/50 transition-colors" placeholder="Jane Smith" />
+                </div>
+                <div>
+                  <label className="text-[10px] uppercase tracking-widest text-white/40 mb-2 block">Phone (optional)</label>
+                  <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder:text-white/20 outline-none focus:border-[#c2a07e]/50 transition-colors" placeholder="(512) 555-0123" />
                 </div>
               </div>
-
-              <div className="lg:w-1/2">
-                <form onSubmit={handleSubmit} className="bg-[#1a1310] rounded-2xl p-8 md:p-12 space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="text-[10px] uppercase tracking-widest text-white/40 mb-2 block">Full Name</label>
-                      <input type="text" value={name} onChange={(e) => setName(e.target.value)} required className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder:text-white/20 outline-none focus:border-[#c2a07e]/50 transition-colors" placeholder="Jane Smith" />
-                    </div>
-                    <div>
-                      <label className="text-[10px] uppercase tracking-widest text-white/40 mb-2 block">Phone</label>
-                      <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder:text-white/20 outline-none focus:border-[#c2a07e]/50 transition-colors" placeholder="(512) 555-0123" />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="text-[10px] uppercase tracking-widest text-white/40 mb-2 block">Email Address</label>
-                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder:text-white/20 outline-none focus:border-[#c2a07e]/50 transition-colors" placeholder="jane@example.com" />
-                  </div>
-                  <div>
-                    <label className="text-[10px] uppercase tracking-widest text-white/40 mb-2 block">Message</label>
-                    <textarea value={message} onChange={(e) => setMessage(e.target.value)} rows={4} className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder:text-white/20 outline-none focus:border-[#c2a07e]/50 transition-colors resize-none" placeholder="I'm interested in scheduling a tour..." />
-                  </div>
-                  <button type="submit" disabled={submitting} className="w-full text-[11px] uppercase tracking-[0.2em] font-semibold bg-[#c2a07e] text-[#1a1310] rounded-lg py-4 hover:bg-[#d4b896] transition-all disabled:opacity-50">
-                    {submitting ? 'Sending...' : 'Submit Inquiry'}
-                  </button>
-                  {submitMessage && <p className="text-[11px] text-center uppercase tracking-widest text-[#c2a07e]">{submitMessage}</p>}
-                </form>
+              <div>
+                <label className="text-[10px] uppercase tracking-widest text-white/40 mb-2 block">Email Address</label>
+                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder:text-white/20 outline-none focus:border-[#c2a07e]/50 transition-colors" placeholder="jane@example.com" />
               </div>
-            </div>
+              <div>
+                <label className="text-[10px] uppercase tracking-widest text-white/40 mb-2 block">Message</label>
+                <textarea value={message} onChange={(e) => setMessage(e.target.value)} rows={4} className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder:text-white/20 outline-none focus:border-[#c2a07e]/50 transition-colors resize-none" placeholder="I'm interested in this investment opportunity. Please share more details." />
+              </div>
+              <button type="submit" disabled={submitting} className="w-full text-[11px] uppercase tracking-[0.2em] font-semibold bg-[#c2a07e] text-[#1a1310] rounded-lg py-4 hover:bg-[#d4b896] transition-all disabled:opacity-50">
+                {submitting ? 'Sending...' : 'Submit Inquiry'}
+              </button>
+              {submitMessage && <p className="text-[11px] text-center uppercase tracking-widest text-[#c2a07e]">{submitMessage}</p>}
+            </form>
           </div>
         </section>
 
