@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 const TELEGRAM_TOKEN = '8658667496:AAHbf8jGYCKPBaPEY9pyXXzNPNtEnadiDOU';
-const TELEGRAM_CHAT_ID = '8569056081';
+const TELEGRAM_CHAT_ID = '-5074888487'; // Sol-Ops-Log group (routine, no DM ping) - repointed 2026-07-24; real leads still reach Forrest via morning brief + prospects table
 const SUPABASE_URL = 'https://oxexnudmtjxtouckkibe.supabase.co';
 const SUPABASE_KEY_FALLBACK = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im94ZXhudWRtdGp4dG91Y2traWJlIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NjY5OTAyMywiZXhwIjoyMDkyMjc1MDIzfQ._20IBmfQLsyxG2YD_S4HJ4kzjiO6ejIEz_diu6zCnpA';
 
@@ -56,7 +56,7 @@ export async function POST(req: NextRequest) {
           headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${resendKey}` },
           body: JSON.stringify({
             from: 'Oak Forest Modern Homes <portal@oakforest.com>',
-            to: ['forrest@oakforest.com'],
+            to: ['forrest@the247broker.com'],
             subject: `[66 Anthony] Website Inquiry — ${name}`,
             html: [
               `<p><strong>Name:</strong> ${name}</p>`,
