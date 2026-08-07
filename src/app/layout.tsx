@@ -11,14 +11,26 @@ export const metadata: Metadata = {
   openGraph: {
     title: "66 Anthony | Oak Forest Modern Homes",
     description: "Three luxury residences in East Austin. Pool, carport, curated finishes.",
-    images: ["/home.jpg"],
+    // 1200x630 branded card cut from the property render. Do NOT point this at
+    // /home.jpg — that file is a pixel-art placeholder from the original template
+    // and unfurled as game artwork in iMessage/social previews (fixed 2026-08-07).
+    images: [
+      {
+        url: "/og-card.jpg",
+        width: 1200,
+        height: 630,
+        alt: "66 Anthony — three modern residences in East Austin",
+      },
+    ],
     type: "website",
+    siteName: "66 Anthony | Oak Forest Modern Homes",
+    url: "https://66anthony.com",
   },
   twitter: {
     card: "summary_large_image",
     title: "66 Anthony | Oak Forest Modern Homes",
     description: "Three luxury residences in East Austin.",
-    images: ["/home.jpg"],
+    images: ["/og-card.jpg"],
   },
 };
 
