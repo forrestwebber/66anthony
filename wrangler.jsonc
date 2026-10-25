@@ -9,8 +9,10 @@
   // Previous Pages config: wrangler.jsonc.bak-pages-20260801
   "name": "66anthony-worker",
   "main": ".open-next/worker.js",
-  "compatibility_date": "2024-12-18",
-  "compatibility_flags": ["nodejs_compat"],
+  "compatibility_date": "2025-10-01",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  // 2026-10-25 hang fix: OpenNext expects a self-reference binding for its cache/queue calls.
+  "services": [{ "binding": "WORKER_SELF_REFERENCE", "service": "66anthony-worker" }],
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS"
